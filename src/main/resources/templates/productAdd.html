@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    <link rel="icon" type="image/png" th:href="@{/static/favicon.ico}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(Home)}"/>
+<div class="container">
+    <h2>Добавить продукт</h2>
+    <br>
+
+    <form method="post" th:action="@{'/save'}" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Название</label>
+            <input type="text" name="title" class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Цена</label>
+            <input type="text" name="price" class="form-control" id="price">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Категория</label>
+            <input type="text" name="category" class="form-control" id="category">
+        </div>
+        <div class="mb-3">
+            <label for="imagefile" class="form-label">Картинка</label>
+            <input type="file" name="imagefile" class="form-control" id="imagefile">
+        </div>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+    <p></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    <link rel="icon" type="image/png" th:href="@{/static/favicon.ico}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(Home)}" />
+
+<div class="container">
+    <br>
+    <h1>@ProductShop</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>Картинка</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Категория</th>
+        </tr>
+        </thead>
+
+        <tr class="responsive-row" th:each="product : ${products}">
+            <td th:text="${product.id}"/>
+            <td>
+            <img th:if="${product.images.size() > 0}" width="40" height="40" th:src="@{'/images/' + ${product.images[0].path}}" />
+            </td>
+            <td th:text="${product.title}"/>
+            <td th:text="${product.price}"/>
+            <td th:text="${product.category}"/>
+        </tr>
+    </table>
+
+    <footer class="panel-footer">
+        Всего продуктов: [[${totalProducts}]] &nbsp; &nbsp;
+        Страница [[${currentPage}]] из [[${totalPages}]]
+        &nbsp; &nbsp; - &nbsp;
+        <span th:each="i : ${#numbers.sequence(1, totalPages)}">
+            <a th:href="@{'/products?indexPage=' + ${i}}">[[${i}]]</a>
+            &nbsp;
+        </span>
+    </footer>
+</div>
+
+</body>
+</html>

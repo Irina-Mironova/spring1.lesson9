@@ -1,21 +1,23 @@
 package ru.geekbrains.spring1.lesson9.entities;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@RequiredArgsConstructor
-@Table(name = "categories")
-public class Category {
-
+@Table(name = "products_images")
+public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @Column(name = "path")
+    private String path;
+
 }
