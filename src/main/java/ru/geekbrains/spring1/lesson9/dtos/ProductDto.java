@@ -32,8 +32,6 @@ public class ProductDto {
         this.title = product.getTitle();
         this.price = product.getPrice();
         this.category = product.getCategory().getTitle();
-
-        // this.setImages(product.getImages());
         this.images = product.getImages();
 
     }

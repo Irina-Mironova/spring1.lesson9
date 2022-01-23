@@ -1,6 +1,7 @@
 package ru.geekbrains.spring1.lesson9.entities;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity

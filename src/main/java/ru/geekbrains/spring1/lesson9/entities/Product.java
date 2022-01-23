@@ -35,11 +35,11 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "product",fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "product", fetch = FetchType.EAGER)
     private List<ProductImage> images;
 
-    public void addImage(ProductImage productImage){
-        if (images == null){
+    public void addImage(ProductImage productImage) {
+        if (images == null) {
             images = new ArrayList<>();
         }
         images.add(productImage);

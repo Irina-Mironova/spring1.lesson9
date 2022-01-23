@@ -16,7 +16,7 @@
 
 <body>
 
-<div th:replace="~{navigation :: navi(Home)}" />
+<div th:replace="~{navigation :: navi(Home)}"/>
 
 <div class="container">
     <br>
@@ -35,7 +35,8 @@
         <tr class="responsive-row" th:each="product : ${products}">
             <td th:text="${product.id}"/>
             <td>
-            <img th:if="${product.images.size() > 0}" width="40" height="40" th:src="@{'/images/' + ${product.images[0].path}}" />
+                <img th:if="${product.images.size() > 0}" width="40" height="40"
+                     th:src="@{'/images/' + ${product.images[0].path}}"/>
             </td>
             <td th:text="${product.title}"/>
             <td th:text="${product.price}"/>
