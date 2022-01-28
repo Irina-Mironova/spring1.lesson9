@@ -29,6 +29,7 @@
             <th>Название</th>
             <th>Цена</th>
             <th>Категория</th>
+            <th></th>
         </tr>
         </thead>
 
@@ -41,6 +42,10 @@
             <td th:text="${product.title}"/>
             <td th:text="${product.price}"/>
             <td th:text="${product.category}"/>
+            <td>
+                <a th:href="@{'/cart/add/' + ${product.id}}" class="btn btn-primary" onclick="sendName()">Добавить в
+                    корзину</a>
+            </td>
         </tr>
     </table>
 
